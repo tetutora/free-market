@@ -17,6 +17,10 @@ class RegisterController extends Controller
 
     public function register(RegisterRequest $request)
     {
+        if (User::where('email', $request->email)->exists()) {
+            return redirect()->back()->withErrors(['email' => 'このメールアドレスは既に登録されています。']);
+        }
+
         // ユーザー登録
         $user = User::create([
             'name' => $request->name,
@@ -28,7 +32,7 @@ class RegisterController extends Controller
         Auth::login($user);
 
         // 管理画面にリダイレクト
-        return redirect()->route('login');
+        return redirect()->route('profile');
     }
 
     public function showLoginForm()

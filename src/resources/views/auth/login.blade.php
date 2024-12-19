@@ -13,11 +13,11 @@
         @csrf
         <div class="form__group">
         <div class="form__group-title">
-            <span class="form__label--item">メールアドレス</span>
+            <span class="form__label--item">ユーザー名/メールアドレス</span>
         </div>
         <div class="form__group-content">
             <div class="form__input--text">
-            <input type="email" name="email" value="{{ old('email') }}" />
+            <input type="text" name="email" value="{{ old('email') }}" />
             </div>
             <div class="form__error">
             @error('email')
