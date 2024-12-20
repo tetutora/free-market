@@ -20,7 +20,6 @@ Route::get('/', function () {
 });
 
 // 新規登録ルート
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
 // ログインルート
